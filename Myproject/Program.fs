@@ -1,19 +1,26 @@
-﻿open System
+﻿module ProgramOne
+
+open System
 
 let square x = x * x
 let absValue x = if x < 0 then -x else x
 let maxOfTwo x y = if x > y then x else y
 
+///// // / / //  
 
 let rec factorial n =
     if n <= 1 then 
         1
     else 
         n * factorial (n - 1) 
+
 let rec sumList list =
     match list with
     | [] -> 0                     
     | head :: tail -> head + sumList tail 
+
+
+
 
 let functionTest nums =
     nums
@@ -21,8 +28,7 @@ let functionTest nums =
     |> List.map (fun x -> x * x)       
     |> List.sum                         
 
-[<EntryPoint>]
-let main argv =
+let main (argv: string array) =
     printfn "Привіт! Це моя перша програма на функціональній мові F#."
 
 
@@ -34,7 +40,7 @@ let main argv =
     printfn "absValue %d = %d" negNum (absValue negNum)
     printfn "maxOfTwo %d %d = %d" a b (maxOfTwo a b)
 
-//--------------------------------//
+//--------------------------------////////////////////////////////////////////////////////////////////////////////
     let fact5 = factorial 5
     printfn "factorial 5 = %d" fact5
     let list1 = [1; 2; 3]    
@@ -42,12 +48,9 @@ let main argv =
 
 //------------------------------//
    
-    let numbers = [1 .. 10]
-    
+    let numbers = [1 .. 10]    
     let squares = numbers |> List.map square
-
-    let evens = numbers |> List.filter (fun x -> x % 2 = 0)
-
+    let evens: int list = numbers |> List.filter (fun x -> x % 2 = 0)
     let totalSum = numbers |> List.sum
 
     printfn "Початковий список: %A" numbers
