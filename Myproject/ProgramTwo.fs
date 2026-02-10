@@ -36,7 +36,6 @@ let analyzeGrades grades =
 
 ////////////////////////////////////////////////////////
 
-[<EntryPoint>]
 let main _ =
     
     printfn "Перевірка до завдання №1:" 
